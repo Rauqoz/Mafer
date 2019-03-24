@@ -4,18 +4,17 @@
 int main(){
 	
 	//Coeficientes
-	double a0,a,b,c,p,q,dis,u,v,k[3],R[3],o;
+	double a0,a,b,c,p,q,dis,u,v,k[3],R[3],o,en,im;
 	
 	//inicio contador general
 	int i;
-	
 	
 	//inicio programa
 	for(i = 0 ;i < 3 ; i++){
 		k[i]=i;
 	}
 	printf("Resolucion de una cubica de la forma ax^3+bx^2+cx+d=0 \n");
-	printf("4\n");
+	printf("3\n");
 	printf("Introduzca el  primer coeficiente \n");
 	scanf("%lf", &a0);
 	printf("Introduzca el segundo coeficiente  \n");
@@ -34,7 +33,7 @@ int main(){
 	printf("P = %.0f y Q = %.0f\n" ,p,q);
 	
 	//Discriminante
-	dis = pow(q/2,2) + pow(p/3,3)  ;
+	dis = (pow((q/2),2)) + (pow((p/3),3))  ;
 	printf("\nEl discriminante es = %.0f\n" , dis); 
 	
 	//Condicionales
@@ -50,14 +49,28 @@ int main(){
 			
 		}
 		
+	}else if(dis==0){
+		if(p==q==0){
+			double x;
+			x = -a/3;
+			printf("\nLa Raiz es %f",x);
+		}
+		
+	}else if(dis>0){
+		u = pow( (-q/2 + sqrt(dis)), (1.0/3.0));
+		v = pow( (-q/2 - sqrt(dis)), (1.0/3.0));
+		printf("\nu = %.2f y v = %.2f" , u,v);
+		printf("\nX1 = %.2f", (u + v - (a/3)) );
+		en = ((-1*((u+v)/2)) - (a/3));
+		im = (u-v)*((sqrt(3)) /2);
+		printf("\nX2 = %.2f + %.2f i" , en , im);
+		printf("\nX2 = %.2f - %.2f i" , en , im);
+		
 	}
 	
 		
 
 
-
-//Condiciones para ver si tiene valor real o no
-//No arreglos de vectores
 
 	
 	
